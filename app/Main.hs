@@ -4,5 +4,5 @@ import ECM.Core
 
 main :: IO ()
 main = do
-    factors <- factor 780787 2000
+    factors <- factor 455839 2000 -- Example of usage
     print factors
