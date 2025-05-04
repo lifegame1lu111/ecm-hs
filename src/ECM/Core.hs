@@ -14,7 +14,7 @@ getFactor n k = do
                 Left q -> 
                     case q of
                         Inf -> return n
-                        _ -> getFactor n b
+                        _ -> getFactor n k
                 Right num -> return $ gcd num n
         Right num -> return $ gcd num n
 
