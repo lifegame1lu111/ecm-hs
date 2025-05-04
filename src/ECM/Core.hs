@@ -3,12 +3,12 @@ module ECM.Core where
 import ECM.Internal
 
 getFactor :: Integer -> Integer -> IO Integer
-getFactor n b = do
+getFactor n k = do
     p <- genCurve n
 
     case p of
         Left p' -> do
-            let res = mulPoint (lcm' [1..b]) p'
+            let res = mulPoint k p'
 
             case res of
                 Left q -> 
@@ -28,3 +28,5 @@ factor n b
         if num == n
         then return [n]
         else (num :) <$> factor (n `div` num) b
+  where
+    k = lcm' [1..b]
