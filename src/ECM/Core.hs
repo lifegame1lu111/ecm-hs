@@ -23,7 +23,7 @@ factor n b
     | even n = (2 :) <$> factor (n `div` 2) b
     | n `mod` 3 == 0 = (3 :) <$> factor (n `div` 3) b
     | otherwise = do
-        num <- getFactor n b
+        num <- getFactor n k
 
         if num == n
         then return [n]
